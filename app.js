@@ -13,11 +13,6 @@ const cookieParser = require('cookie-parser');
 
 // Route files
 const userRouter = require('./routes/userRoutes');
-const jobApplicationRouter = require('./routes/jobApplicationRoutes');
-const jobRouter = require('./routes/jobRoutes');
-const projectRouter = require('./routes/projectRoutes');
-const quoteRouter = require('./routes/quoteRoutes');
-const siteSettingRouter = require('./routes/siteSettingRoutes');
 
 // Error Middlewares
 const AppError = require('./utils/appError');
@@ -92,11 +87,6 @@ app.use(compression());
 
 // 3) Routes
 app.use('/api/v1/users', userRouter);
-app.use('/api/v1/jobApplications', jobApplicationRouter);
-app.use('/api/v1/jobs', jobRouter);
-app.use('/api/v1/projects', projectRouter);
-app.use('/api/v1/quotes', quoteRouter);
-app.use('/api/v1/sitesettings', siteSettingRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Error: ${req.originalUrl} is not on this server`, 404));
